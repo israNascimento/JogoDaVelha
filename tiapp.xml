@@ -4,13 +4,13 @@
     <name>JogoDaVelha</name>
     <version>1.0</version>
     <publisher>Israel</publisher>
-    <url/>
+    <url>http://isranascimento.github.io</url>
     <description/>
     <copyright>2015 by Israel</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
+    <navbar-hidden>true</navbar-hidden>
+    <analytics>false</analytics>
     <guid>033bc59a-9568-4d18-9ccc-b547d7f8d12c</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
