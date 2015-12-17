@@ -1,1 +1,0 @@
-Ti.include("./Board.js"),Ti.include("./GameManager.js"),Titanium.UI.setBackgroundColor("#000");var win1=Titanium.UI.createWindow({fullscreen:!1,navBarHidden:!0,backgroundColor:"#fff"}),gameManager=new GameManager(win1);gameManager.Start(),win1.open();

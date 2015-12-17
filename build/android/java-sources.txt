@@ -1,8 +1,0 @@
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/android/support/v7/appcompat/R.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/android/support/v7/cardview/R.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/com/israelnascimento/jogodavelha/AssetCryptImpl.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/com/israelnascimento/jogodavelha/JogodavelhaActivity.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/com/israelnascimento/jogodavelha/JogodavelhaAppInfo.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/com/israelnascimento/jogodavelha/JogodavelhaApplication.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/com/israelnascimento/jogodavelha/R.java"
-"C:/Users/Israel/Documents/Appcelerator_Studio_Workspace/JogoDaVelha/build/android/gen/ti/modules/titanium/ui/R.java"

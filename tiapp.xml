@@ -9,7 +9,7 @@
     <copyright>2015 by Israel</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
-    <navbar-hidden>true</navbar-hidden>
+    <navbar-hidden>false</navbar-hidden>
     <analytics>false</analytics>
     <guid>033bc59a-9568-4d18-9ccc-b547d7f8d12c</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>

@@ -3,80 +3,43 @@
  */
 Ti.include("./Board.js");
 
-var GameManager = function(window)
+var GameManager = function(pvp, easy, medium, hard)
 {
-	this.board = new Board(window, this);
-	this.currentPlayer = "X";
+	this.boardPvp    = new Board(pvp, this, "Player");
+	this.boardEasy   = new Board(easy, this, "Easy");
+	this.currentBoard = this.boardPvp;
 	this.countButtonChecked = 0;
-	this.xWins = 0;
-	this.oWins = 0;
-	this.hasWin = false;
-	
-	
-	this.labelX = Titanium.UI.createLabel({
-		color:'#000000',
-		text:'Vitórias X: ',
-		font:{fontSize:30,fontFamily:'Helvetica Neue'},
-		textAlign:'center',
-		width:'auto',
-		bottom: 80
-	});
-	
-	this.labelO = Titanium.UI.createLabel({
-		color:'#000000',
-		text:'Vitórias O: ',
-		font:{fontSize:30,fontFamily:'Helvetica Neue'},
-		textAlign:'center',
-		width:'auto',
-		bottom: 40
-	});
-
 	
 	this.Start = function()
 	{
-		this.board.CreateBoard();
-		window.add(this.labelO);
-		window.add(this.labelX);
-	};
-	
-	this.CallClickButton= function(x, y)
-	{
-		this.board.ButtonClick(x, y, this.currentPlayer);
-		this.countButtonChecked++;
-		this.ChangePlayer();
-	};
-	
-	this.ChangePlayer = function()
-	{
-		if(this.countButtonChecked >= 5)
-			this.board.CheckWin();
+		this.boardPvp.CreateBoard();
+		this.boardEasy.CreateBoard();
 		
-		if(this.currentPlayer == "X")
-			this.currentPlayer = "O";
-		else
-			this.currentPlayer = "X";
-			
-			
-	//-----------------------------------------------------------------------------+-
-	//	Ti.API.info("Board IN change: "+this.board+" Reset: ");
-	};
-	
-	this.GetWinner = function()
-	{
-		if(this.currentPlayer == "X")
+		this.boardPvp.playerManager.UpdateLabels();
+		this.boardEasy.playerManager.UpdateLabels();
+		
+		if(Titanium.App.Properties.getInt("BestScoreEasy") == null)
 		{
-			this.oWins++;
-			this.labelO.text = "Vitórias O: "+this.oWins;
+			Titanium.App.Properties.setInt("BestScoreEasy", 0);
 		}
-		
-		else
+	};
+	
+	this.ChangeTab = function(name)
+	{
+		switch(name)
 		{
-			this.xWins++;
-			this.labelX.text = "Vitórias X: "+this.xWins;
+			case "VS JOGADOR": this.currentBoard = this.boardPvp;
+			break;
+			case "VS CPU (FÁCIL)": this.currentBoard = this.boardEasy;
+			break;
 		}
-		
-	//-----------------------------------------------------------------------------+-
-		Ti.API.info("Board: "+this.board+" Reset: "+this.board.Reset());
-		this.board.Reset();
+		this.currentBoard.playerManager.UpdateLabels();
+	};
+	
+	this.CallClickButton= function(x, y) // "Object #<Button> has no method 'CallclickButton'"
+	{
+		this.currentBoard.ButtonClick(x, y, this.currentBoard.playerManager.currentPlayer);
+		this.currentBoard.countButtonChecked++;
+		this.currentBoard.playerManager.ChangePlayer();
 	};
 };
