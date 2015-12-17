@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.israelnascimento.jogodavelha</id>
-    <name>JogoDaVelha</name>
+    <name>Jogo Da Velha</name>
     <version>1.0</version>
     <publisher>Israel</publisher>
     <url>http://isranascimento.github.io</url>

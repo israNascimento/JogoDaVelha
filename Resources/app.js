@@ -4,7 +4,7 @@ Titanium.UI.setBackgroundColor('#000');
 var tabGroup = Titanium.UI.createTabGroup();
 
 var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
+    title:'VS JOGADOR',
     backgroundColor:'#fff'
 });
 var tab1 = Titanium.UI.createTab({  
@@ -14,7 +14,7 @@ var tab1 = Titanium.UI.createTab({
 });
 
 var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
+    title:'VS CPU (FÁCIL)',
     backgroundColor:'#fff'
 });
 
@@ -24,13 +24,27 @@ var tab2 = Titanium.UI.createTab({
     window:win2
 });
 
-var gameManager = new GameManager(win1, win2);
+var win3 = Titanium.UI.createWindow({  
+    title:'VS CPU (DIFÍCIL)',
+    backgroundColor:'#fff'
+});
+
+var tab3 = Titanium.UI.createTab({  
+    icon:'KS_nav_ui.png',
+    title:'VS CPU (DIFÍCIL)',
+    window:win3
+});
+
+var gameManager = new GameManager(win1, win2, win3);
 gameManager.Start();
 
 tabGroup.addTab(tab1);  
 tabGroup.addTab(tab2);
+tabGroup.addTab(tab3);
 tab1.addEventListener('blur', Change , false); 
-tab2.addEventListener('blur', Change , false);
+tab2.addEventListener('blur', Change , false); 
+tab3.addEventListener('blur', Change , false);
+
 
 function Change(e)
 {

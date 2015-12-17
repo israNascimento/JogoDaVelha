@@ -23,6 +23,7 @@ var Board = function(window, gameManager, player2)
 			{
 				this.but = Titanium.UI.createButton({
 					title: "",
+					titleid: ""+i+""+j,
 					width: btn_w,
 					height: btn_h,
 					left: (window.rect.width/2 + 1*btn_w)+btn_w*i,
@@ -62,7 +63,7 @@ var Board = function(window, gameManager, player2)
 		return false;
 	};
 	
-	this.CheckWin = function()
+	this.GetWinsPossibilitys = function()
 	{
 		this.winsPossibility = [[this.btn_array[0][0], this.btn_array[0][1], this.btn_array[0][2]], 
 						        [this.btn_array[1][0], this.btn_array[1][1], this.btn_array[1][2]],
@@ -72,12 +73,17 @@ var Board = function(window, gameManager, player2)
 						        [this.btn_array[0][2], this.btn_array[1][2], this.btn_array[2][2]],
 						        [this.btn_array[0][0], this.btn_array[1][1], this.btn_array[2][2]], 
 						        [this.btn_array[0][2], this.btn_array[1][1], this.btn_array[2][0]]];
-			
-		for(var i = 0; i<this.winsPossibility.length; i++)
+		
+		return this.winsPossibility;
+	};
+	
+	this.CheckWin = function()
+	{	
+		for(var i = 0; i<this.GetWinsPossibilitys().length; i++)
 		{
-			if(this.IsArrayEqual(this.winsPossibility[i]))
+			if(this.IsArrayEqual(this.GetWinsPossibilitys()[i]))
 			{
-				this.Highlight(this.winsPossibility[i]);
+				this.Highlight(this.GetWinsPossibilitys()[i]);
 				this.playerManager.hasWin = true;
 				
 				var toast = Ti.UI.createNotification({
@@ -152,6 +158,10 @@ var Board = function(window, gameManager, player2)
 
 		this.countButtonChecked = 0;
 		this.playerManager.hasWin = false;
-		this.playerManager.currentPlayer = "X";		
+		this.playerManager.aiManager.hasTwoEquals = false;
+		if(player2 != "Player")
+		{
+			this.playerManager.currentPlayer = "X";		
+		}
 	};
 };
